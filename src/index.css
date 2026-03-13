@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: #0a0a0f;
+  font-family: 'Orbitron', 'Segoe UI', sans-serif;
+  color: #e0e0e0;
+}
+
+.glass-panel {
+  background: rgba(26, 26, 46, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 255, 245, 0.15);
+  box-shadow: 
+    0 0 20px rgba(0, 255, 245, 0.1),
+    inset 0 0 30px rgba(0, 255, 245, 0.02);
+}
+
+.neon-border {
+  border: 1px solid rgba(0, 255, 245, 0.4);
+  box-shadow: 
+    0 0 10px rgba(0, 255, 245, 0.3),
+    0 0 20px rgba(0, 255, 245, 0.1),
+    inset 0 0 10px rgba(0, 255, 245, 0.05);
+}
+
+.neon-border-pink {
+  border: 1px solid rgba(255, 0, 255, 0.4);
+  box-shadow: 
+    0 0 10px rgba(255, 0, 255, 0.3),
+    0 0 20px rgba(255, 0, 255, 0.1);
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, 
+    rgba(0, 255, 245, 0.3) 0%, 
+    rgba(0, 255, 245, 0.8) 50%, 
+    rgba(0, 255, 245, 0.3) 100%
+  );
+  background-size: 200% 100%;
+  animation: data-flow 2s linear infinite;
+}
+
+.progress-bar-danger {
+  background: linear-gradient(90deg, 
+    rgba(255, 51, 102, 0.3) 0%, 
+    rgba(255, 51, 102, 0.9) 50%, 
+    rgba(255, 51, 102, 0.3) 100%
+  );
+  background-size: 200% 100%;
+  animation: data-flow 1.5s linear infinite;
+}
+
+.progress-bar-warning {
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 0, 0.3) 0%, 
+    rgba(255, 255, 0, 0.9) 50%, 
+    rgba(255, 255, 0, 0.3) 100%
+  );
+  background-size: 200% 100%;
+  animation: data-flow 1.8s linear infinite;
+}
+
+.progress-bar-safe {
+  background: linear-gradient(90deg, 
+    rgba(0, 255, 136, 0.3) 0%, 
+    rgba(0, 255, 136, 0.9) 50%, 
+    rgba(0, 255, 136, 0.3) 100%
+  );
+  background-size: 200% 100%;
+  animation: data-flow 2s linear infinite;
+}
+
+@keyframes data-flow {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+.status-online {
+  background: linear-gradient(135deg, #00ff88 0%, #00ffaa 100%);
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+}
+
+.status-offline {
+  background: linear-gradient(135deg, #666 0%, #888 100%);
+  box-shadow: none;
+}
+
+.status-mission {
+  background: linear-gradient(135deg, #00fff5 0%, #00aaff 100%);
+  box-shadow: 0 0 10px rgba(0, 255, 245, 0.6);
+}
+
+.status-sleep {
+  background: linear-gradient(135deg, #bf00ff 0%, #8800ff 100%);
+  box-shadow: 0 0 10px rgba(191, 0, 255, 0.6);
+}
+
+.scan-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(0, 255, 245, 0.8) 50%, 
+    transparent 100%
+  );
+  animation: scan-line 3s linear infinite;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.crew-card {
+  transition: all 0.3s ease;
+}
+
+.crew-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 10px 30px rgba(0, 255, 245, 0.2),
+    0 0 20px rgba(0, 255, 245, 0.1);
+}
+
+.energy-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  outline: none;
+}
+
+.energy-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #00fff5;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 255, 245, 0.8);
+}
+
+.energy-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #00fff5;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 255, 245, 0.8);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 245, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 245, 0.5);
+}
